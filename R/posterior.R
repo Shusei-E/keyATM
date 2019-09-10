@@ -149,7 +149,7 @@ keyATM_output <- function(model){
   }
 
   ll <- list(keyword_K = length(model$dict), extra_K = model$extra_k,
-             V = V, N = N,
+             V = V, N = N, W = model$W, Z = model$Z, X = model$X,
              model=model$mode,
              theta = theta, beta = tZW, # as.matrix(as.data.frame.matrix(tZW)),
              topic_counts = topic_counts, word_counts = word_counts,
