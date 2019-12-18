@@ -31,6 +31,7 @@ class keyATMmeta
     int use_weight;
     int store_theta;
     int thinning;
+    int sampling_shift;
 
     double slice_A; // parameter for slice sampling 
 

@@ -822,7 +822,8 @@ check_arg_options <- function(obj, model, info)
   allowed_arguments <- c("seed", "output_per", "thinning",
                          "iterations",
                          "use_weights", "prune",
-                         "store_theta", "slice_shape")
+                         "store_theta", "slice_shape",
+                         "sampling_shift")
 
   # Output per
   if (is.null(obj$output_per))
@@ -912,7 +913,18 @@ check_arg_options <- function(obj, model, info)
     if (!obj$store_transition_matrix %in% c(0, 1)) {
       stop("An invalid value in `options$store_transition_matrix`")  
     }
+    obj$store_transition_matrix <- as.integer(obj$store_transition_matrix)
     allowed_arguments <- c(allowed_arguments, "store_transition_matrix")
+  }
+
+  if (is.null(obj$sampling_shift)) {
+    obj$sampling_shift <- 0L 
+  } else {
+    if (!obj$sampling_shift %in% c(0, 1)) {
+      stop("An ivalid value in `options$sampling_shift")  
+    } else {
+      obj$sampling_shift <- as.integer(obj$sampling_shift) 
+    }
   }
 
   # Check unused arguments

@@ -59,6 +59,7 @@ void keyATMmeta::read_data_common()
   slice_A = options_list["slice_shape"];
   store_theta = options_list["store_theta"];
   thinning = options_list["thinning"];
+  sampling_shift = options_list["sampling_shift"];
 
   // Priors
   priors_list = model["priors"];
@@ -195,10 +196,10 @@ void keyATMmeta::iteration()
 {
   // Iteration
   for (int it = 0; it < iter; it++) {
+    int r_index = it + 1;
     iteration_single(it);
 
     // Check storing values
-    int r_index = it + 1;
     if (r_index % output_per == 0 || r_index == 1 || r_index == iter) {
       sampling_store(r_index);
       verbose_special(r_index);
@@ -213,6 +214,7 @@ void keyATMmeta::iteration()
 
   model["model_fit"] = model_fit;
 }
+
 
 void keyATMmeta::sampling_store(int &r_index)
 {

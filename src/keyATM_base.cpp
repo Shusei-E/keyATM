@@ -53,7 +53,14 @@ void keyATMbase::iteration_single(int &it)
     Z[doc_id_] = doc_z;
     S[doc_id_] = doc_s;
   }
-  sample_parameters(it);
+
+  if (sampling_shift) {
+    if ((it + 1) < floor(iter * 0.4)) {
+      sample_parameters(it);
+    } 
+  } else {
+    sample_parameters(it);
+  }
 
 }
 
