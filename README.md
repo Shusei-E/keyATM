@@ -13,6 +13,9 @@ maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www
 [![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/Shusei-E/keyATM&style=flat)](https://mergify.io)
 <!-- badges: end -->
 
+# THIS IS OLD VERSION
+New repo: https://github.com/keyATM/keyATM
+
 # Website
 Please visit [our website](https://shusei-e.github.io/keyATM/) for a complete reference.
 
